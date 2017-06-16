@@ -1,0 +1,14 @@
+{
+  "name": "characters-api",
+  "version": "1.0.0",
+  "description": "um_challenge",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Natalia Stafeeva",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
