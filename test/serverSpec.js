@@ -2,7 +2,7 @@ const assert = require('assert')
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 const app = require('../src/app.js').app
-const should = chai.should()
+const expect = chai.expect
 
 chai.use(chaiHttp)
 
@@ -12,8 +12,8 @@ describe('app', () => {
       chai.request(app)
           .get('/')
           .end((err, res) => {
-            res.should.have.status(200)
-            res.text.should.equal('Hello World!')
+            expect(res.status).to.equal(200)
+            expect(res.text).to.equal('Hello World!')
             done()
           })
     })
@@ -24,8 +24,8 @@ describe('app', () => {
       chai.request(app)
           .get('/character')
           .end((err, res) => {
-            res.should.have.status(200)
-            res.body.should.have.length(0)
+            expect(res.status).to.equal(200)
+            expect(res.body.length).to.equal(0)
             done()
           })
     })
