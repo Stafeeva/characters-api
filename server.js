@@ -28,7 +28,7 @@ app.get('/characters', (req, res) => {
 
 app.post('/characters', (req, res) => {
   characters.push(req.body)
-  res.send('Create character to go here')
+  res.sendStatus(201)
 })
 
 app.listen(3000, () => {
