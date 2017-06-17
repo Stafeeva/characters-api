@@ -19,7 +19,7 @@
         "birth_year": "112BBY",
         "is_male": true
     }, {
-      "name": "Leia Organa",
+          "name": "Leia Organa",
           "height": 150,
           "mass": 49,
           "hair_color": "brown",
