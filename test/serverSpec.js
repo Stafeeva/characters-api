@@ -18,4 +18,16 @@ describe('app', () => {
           })
     })
   })
+
+  describe('GET /character', () => {
+    it('should return an empty list', done => {
+      chai.request(app)
+          .get('/character')
+          .end((err, res) => {
+            res.should.have.status(200)
+            res.body.should.have.length(0)
+            done()
+          })
+    })
+  })
 })
