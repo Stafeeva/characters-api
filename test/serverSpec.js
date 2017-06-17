@@ -1,22 +1,17 @@
 const assert = require('assert')
 const chai = require('chai')
 const chaiHttp = require('chai-http')
-const app = require('../src/app.js').app
+const server = require('../src/server.js')
 const expect = chai.expect
+
+const app = server.app
 
 chai.use(chaiHttp)
 
 describe('app', () => {
-  describe('GET /', () => {
-    it("returns 'Hello World!'", done => {
-      chai.request(app)
-          .get('/')
-          .end((err, res) => {
-            expect(res.status).to.equal(200)
-            expect(res.text).to.equal('Hello World!')
-            done()
-          })
-    })
+
+  beforeEach(() => {
+    server.resetCharacters()
   })
 
   describe('GET /character', () => {
@@ -52,7 +47,38 @@ describe('app', () => {
                 })
           })
     })
+
+    it('prevents the user from adding the same character twice', done => {
+      let character = {
+        name: "Chewbacca"
+      }
+      chai.request(app)
+          .post('/character')
+          .send(character)
+          .end((err, res) => {
+            expect(res.status).to.equal(201)
+            expect(server.getCharacters().length).to.equal(1)
+
+            chai.request(app)
+                .post('/character')
+                .send(character)
+                .end((err, res) => {
+                  expect(server.getCharacters().length).to.equal(1)
+                  expect(res.status).to.equal(400)
+                  done()
+                })
+          })
+    })
+
+    it('only adds valid characters', done => {
+      let character = {}
+      chai.request(app)
+          .post('/character')
+          .send(character)
+          .end((err, res) => {
+            expect(res.status).to.equal(400)
+            done()
+          })
+    })
   })
-
-
 })
