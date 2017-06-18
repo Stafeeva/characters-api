@@ -12,13 +12,25 @@ class CharacterList extends Component {
     }
   }
 
-  componentDidMount() {
-    var self = this
+  loadCharacters() {
     axios.get('/character')
          .then(response => {
-           self.setState({
+           this.setState({
              characters : response.data
            })
+         })
+  }
+
+  componentDidMount() {
+    this.loadCharacters()
+  }
+
+  handleDelete(name) {
+    event.preventDefault()
+
+    axios.delete('/character/' + name)
+         .then(response => {
+           this.loadCharacters()
          })
   }
 
@@ -30,7 +42,9 @@ class CharacterList extends Component {
 
         {this.state.characters.map(character => {
           return <div key={character.name}>
-            <h3>{character.name}</h3>
+            <h3>{character.name}
+              <button onClick={() => this.handleDelete(character.name)}>Delete character</button>
+            </h3>
           </div>
         })}
       </div>

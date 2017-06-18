@@ -27,6 +27,14 @@ app.post('/character', (req, res) => {
   }
 })
 
+app.delete('/character/:name', (req, res) => {
+  const characterToDelete = req.params.name
+  characters = characters.filter(character => {
+    return character.name !== characterToDelete
+  })
+  res.sendStatus(200)
+})
+
 exports.app = app
 exports.getCharacters = () => characters
 exports.resetCharacters = () => { characters = [] }

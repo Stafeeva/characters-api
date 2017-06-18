@@ -81,4 +81,25 @@ describe('app', () => {
           })
     })
   })
+
+  describe('DELETE /chatacter/:id', () => {
+    it('deletes character from a list', done => {
+      let character = { name: 'R2D2' }
+      chai.request(app)
+        .post('/character')
+        .send(character)
+        .end((err, res) => {
+          expect(server.getCharacters().length).to.equal(1)
+
+          chai.request(app)
+              .delete('/character/' + character.name)
+              .end((err, res) => {
+                expect(res.status).to.equal(200)
+                expect(server.getCharacters().length).to.equal(0)
+                done()
+              })
+        })
+    })
+  })
+
 })
