@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "mocha",
-    "webpack": "webpack --config webpack.config.js"
+    "webpack": "webpack --config webpack.config.js --progress --watch"
   },
   "author": "Natalia Stafeeva",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "express": "^4.15.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-router-dom": "^4.1.1",
     "webpack": "^2.6.1"
   },
   "devDependencies": {

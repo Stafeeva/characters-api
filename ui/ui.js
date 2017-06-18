@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import CharacterList from './CharacterList'
+import AppRoutes from './AppRoutes'
 
 ReactDOM.render(
   <div>
     <h1>Hello, world!</h1>
-    <CharacterList />
+    <AppRoutes />
   </div>,
   document.getElementById('root')
 )

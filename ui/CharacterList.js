@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import { Link } from 'react-router-dom'
+
 class CharacterList extends Component {
 
   constructor(props) {
@@ -23,6 +25,9 @@ class CharacterList extends Component {
   render() {
     return <div>
         <h2>Characters</h2>
+
+        <Link to="/add-character">Add character</Link>
+
         {this.state.characters.map(character => {
           return <div key={character.name}>
             <h3>{character.name}</h3>
