@@ -42,7 +42,7 @@ class CharacterList extends Component {
 
         {this.state.characters.map(character => {
           return <div key={character.name}>
-            <h3>{character.name}
+            <h3><Link to={'/character/${character.name}'}>{character.name}</Link>
               <button onClick={() => this.handleDelete(character.name)}>Delete character</button>
             </h3>
           </div>

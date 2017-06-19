@@ -82,6 +82,26 @@ describe('app', () => {
     })
   })
 
+  describe('GET /character/:name', () => {
+    it('displays a single character', done => {
+      let character = {
+        name: "Chewbacca"
+      }
+      chai.request(app)
+          .post('/character')
+          .send(character)
+          .end((err, res) => {
+            
+            chai.request(app)
+                .get('/character/Chewbacca')
+                .end((err, res) => {
+                  expect(res.status).to.equal(200)
+                  done()
+                })
+          })
+    })
+  })
+
   describe('DELETE /chatacter/:id', () => {
     it('deletes character from a list', done => {
       let character = { name: 'R2D2' }

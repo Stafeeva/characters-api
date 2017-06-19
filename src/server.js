@@ -12,6 +12,16 @@ app.get('/character', (req, res) => {
   res.json(characters)
 })
 
+app.get('/character/:name', (req, res) => {
+  const character = req.params.name
+  const result = characters.find(c => c.name === character)
+  if (!result) {
+    res.sendStatus(404)
+  } else {
+    res.send(result)
+  }
+})
+
 app.post('/character', (req, res) => {
   var character = req.body
 
