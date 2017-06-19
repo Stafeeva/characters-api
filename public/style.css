@@ -1,15 +1,27 @@
 html {
-  font-family: Lato;
+  font-family: Avenir, helvetica;
   background-color: black;
   color: white;
+  letter-spacing: 1.5px;
 }
 
 h1 {
-  font-size: 3em;
+  font-family: Lato, Avenir;
+  font-size: 30px;
   text-align: center;
   letter-spacing: 4px;
 }
 
 a {
   color: white;
+}
+
+button {
+  line-height: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  margin: 5px;
+  padding: 5px;
 }

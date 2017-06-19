@@ -34,6 +34,10 @@ class CharacterList extends Component {
          })
   }
 
+  handleUpdate() {
+    console.log('you clicked a button!')
+  }
+
   render() {
     return <div>
         <h2>Characters</h2>
@@ -43,8 +47,8 @@ class CharacterList extends Component {
         {this.state.characters.map(character => {
           return <div key={character.name}>
             <h3><Link to={`/character/${character.name}`}>{character.name}</Link>
-              <button onClick={() => this.handleDelete(character.name)}>Delete character</button>
-              <button onClick={() => this.handleUpdate(character.name)}>Update character</button>
+              <button onClick={() => this.handleDelete(character.name)}>Delete</button>
+              <button onClick={() => this.handleUpdate(character.name)}>Edit</button>
             </h3>
           </div>
         })}
