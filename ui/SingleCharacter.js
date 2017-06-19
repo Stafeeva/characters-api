@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import { Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 class SingleCharacter extends Component {
 
@@ -14,6 +14,13 @@ class SingleCharacter extends Component {
     axios.get(`/api/character/${this.props.match.params['name']}`)
          .then(response => {
            this.setState(response.data)
+         })
+  }
+
+  handleDelete() {
+    axios.delete('/api/character/' + this.state.name)
+         .then(response => {
+           this.props.history.push('/')
          })
   }
 
@@ -32,12 +39,12 @@ class SingleCharacter extends Component {
 
       })}
 
-      <h3>Edit</h3>
-
+      <button onClick={() => this.handleDelete()}>Delete</button>
+      <Link to={`/character/edit/${this.state.name}`}>Edit</Link>
       <Link to="/">Back</Link>
     </div>
   }
 
 }
 
-export default SingleCharacter
+export default withRouter(SingleCharacter)

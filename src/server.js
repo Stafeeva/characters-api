@@ -11,13 +11,13 @@ app.use(express.static('public'))
 
 //ui routes
 
-app.get('/character/add', (req, res) => {
+const getIndexHtml = (req, res) => {
   res.send(indexHtml)
-})
+}
 
-app.get('/character/:name', (req, res) => {
-  res.send(indexHtml)
-})
+app.get('/character/add', getIndexHtml)
+app.get('/character/view/:name', getIndexHtml)
+app.get('/character/edit/:name', getIndexHtml)
 
 var characters = []
 
@@ -70,3 +70,4 @@ app.delete('/api/character/:name', (req, res) => {
 exports.app = app
 exports.getCharacters = () => characters
 exports.resetCharacters = () => { characters = [] }
+exports.setCharacters = (newCharacters) => { characters = newCharacters }
