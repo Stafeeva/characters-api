@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import CharacterList from './CharacterList'
 import AddCharacter from './AddCharacter'
+import SingleCharacter from './SingleCharacter'
+
 import {
   BrowserRouter as Router,
   Route,
@@ -14,6 +16,7 @@ class AppRoutes extends Component {
       <div>
         <Route exact path='/' component={CharacterList} />
         <Route path='/add-character' component={AddCharacter} />
+        <Route path='/character/:name' component={SingleCharacter} />
       </div>
     </Router>
   }
