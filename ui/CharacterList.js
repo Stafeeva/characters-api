@@ -26,8 +26,6 @@ class CharacterList extends Component {
   }
 
   handleDelete(name) {
-    event.preventDefault()
-
     axios.delete('/api/character/' + name)
          .then(response => {
            this.loadCharacters()
@@ -42,11 +40,11 @@ class CharacterList extends Component {
     return <div>
         <h2>Characters</h2>
 
-        <Link to="/add-character">Add character</Link>
+        <Link to="/character/add">Add character</Link>
 
         {this.state.characters.map(character => {
           return <div key={character.name}>
-            <h3><Link to={`/character/${character.name}`}>{character.name}</Link>
+            <h3><Link to={`/character/view/${character.name}`}>{character.name}</Link>
               <button onClick={() => this.handleDelete(character.name)}>Delete</button>
               <button onClick={() => this.handleUpdate(character.name)}>Edit</button>
             </h3>

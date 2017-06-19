@@ -15,8 +15,8 @@ class AppRoutes extends Component {
     return <Router>
       <div>
         <Route exact path='/' component={CharacterList} />
-        <Route path='/add-character' component={AddCharacter} />
-        <Route path='/character/:name' component={SingleCharacter} />
+        <Route path='/character/add' component={AddCharacter} />
+        <Route path='/character/view/:name' component={SingleCharacter} />
       </div>
     </Router>
   }

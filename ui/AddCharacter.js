@@ -16,7 +16,7 @@ class AddCharacter extends Component {
       eye_color: '',
       birth_year: '',
       is_male: ''
-  }
+    }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)

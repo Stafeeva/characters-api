@@ -11,7 +11,7 @@ app.use(express.static('public'))
 
 //ui routes
 
-app.get('/add-character', (req, res) => {
+app.get('/character/add', (req, res) => {
   res.send(indexHtml)
 })
 
