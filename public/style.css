@@ -3,6 +3,14 @@ html {
   background-color: black;
   color: white;
   letter-spacing: 1.5px;
+  background-image: url("../images/background2.jpg");
+  background-size: 100%;
+}
+
+#root {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 h1 {
@@ -24,4 +32,8 @@ button {
   background-color: black;
   margin: 5px;
   padding: 5px;
+}
+
+label {
+  text-transform: capitalize;
 }

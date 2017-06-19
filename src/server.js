@@ -1,18 +1,33 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const fs = require('fs')
+
+const indexHtml = fs.readFileSync('public/index.html').toString()
 
 const app = express()
 
 app.use(bodyParser.json())
 app.use(express.static('public'))
 
-var characters = []
+//ui routes
 
-app.get('/character', (req, res) => {
-  res.json(characters)
+app.get('/add-character', (req, res) => {
+  res.send(indexHtml)
 })
 
 app.get('/character/:name', (req, res) => {
+  res.send(indexHtml)
+})
+
+var characters = []
+
+//api routes
+
+app.get('/api/character', (req, res) => {
+  res.json(characters)
+})
+
+app.get('/api/character/:name', (req, res) => {
   const character = req.params.name
   const result = characters.find(c => c.name === character)
   if (!result) {
@@ -22,7 +37,7 @@ app.get('/character/:name', (req, res) => {
   }
 })
 
-app.post('/character', (req, res) => {
+app.post('/api/character', (req, res) => {
   var character = req.body
 
   if (character.name == undefined) {
@@ -37,14 +52,14 @@ app.post('/character', (req, res) => {
   }
 })
 
-app.put('/character/:name',  (req, res) => {
+app.put('/api/character/:name',  (req, res) => {
   const name = req.params.name
   const characterToUpdate = characters.find(c => c.name === name)
   characterToUpdate.height = req.body.height
   res.sendStatus(200)
 })
 
-app.delete('/character/:name', (req, res) => {
+app.delete('/api/character/:name', (req, res) => {
   const characterToDelete = req.params.name
   characters = characters.filter(character => {
     return character.name !== characterToDelete

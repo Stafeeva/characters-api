@@ -17,7 +17,7 @@ describe('app', () => {
   describe('GET /character', () => {
     it('returns an empty list', done => {
       chai.request(app)
-          .get('/character')
+          .get('/api/character')
           .end((err, res) => {
             expect(res.status).to.equal(200)
             expect(res.body.length).to.equal(0)
@@ -32,13 +32,13 @@ describe('app', () => {
         name: "Chewbacca"
       }
       chai.request(app)
-          .post('/character')
+          .post('/api/character')
           .send(character)
           .end((err, res) => {
             expect(res.status).to.equal(201)
 
             chai.request(app)
-                .get('/character')
+                .get('/api/character')
                 .end((err, res) => {
                   expect(res.status).to.equal(200)
                   expect(res.body.length).to.equal(1)
@@ -53,14 +53,14 @@ describe('app', () => {
         name: "Chewbacca"
       }
       chai.request(app)
-          .post('/character')
+          .post('/api/character')
           .send(character)
           .end((err, res) => {
             expect(res.status).to.equal(201)
             expect(server.getCharacters().length).to.equal(1)
 
             chai.request(app)
-                .post('/character')
+                .post('/api/character')
                 .send(character)
                 .end((err, res) => {
                   expect(server.getCharacters().length).to.equal(1)
@@ -73,7 +73,7 @@ describe('app', () => {
     it('only adds valid characters', done => {
       let character = {}
       chai.request(app)
-          .post('/character')
+          .post('/api/character')
           .send(character)
           .end((err, res) => {
             expect(res.status).to.equal(400)
@@ -88,12 +88,12 @@ describe('app', () => {
         name: "Chewbacca"
       }
       chai.request(app)
-          .post('/character')
+          .post('/api/character')
           .send(character)
           .end((err, res) => {
 
             chai.request(app)
-                .get('/character/Chewbacca')
+                .get('/api/character/Chewbacca')
                 .end((err, res) => {
                   expect(res.status).to.equal(200)
                   done()
@@ -109,12 +109,12 @@ describe('app', () => {
         height: 45
       }
       chai.request(app)
-          .post('/character')
+          .post('/api/character')
           .send(character)
           .end((err, res) => {
 
           chai.request(app)
-              .put('/character/' + character.name)
+              .put('/api/character/' + character.name)
               .send({name: "Chewbacca", height: 46})
               .end((err, res) => {
                 expect(res.status).to.equal(200)
@@ -128,13 +128,13 @@ describe('app', () => {
     it('deletes character from a list', done => {
       let character = { name: 'R2D2' }
       chai.request(app)
-        .post('/character')
+        .post('/api/character')
         .send(character)
         .end((err, res) => {
           expect(server.getCharacters().length).to.equal(1)
 
           chai.request(app)
-              .delete('/character/' + character.name)
+              .delete('/api/character/' + character.name)
               .end((err, res) => {
                 expect(res.status).to.equal(200)
                 expect(server.getCharacters().length).to.equal(0)

@@ -7,24 +7,33 @@ class SingleCharacter extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { name: props.name }
+    this.state = { name: 'initial' }
   }
 
   componentDidMount() {
-    const name = this.props.name
-    console.log(name)
-    axios.get(`/character/${this.props.name}`)
+    axios.get(`/api/character/${this.props.match.params['name']}`)
          .then(response => {
-           this.setState({
-             name: name
-           })
+           this.setState(response.data)
          })
   }
 
   render() {
+
+    const fields = Object.keys(this.state)
+
     return <div>
       <h2>{this.state.name}</h2>
+
+      {fields.map(field => {
+        return <div key={field}>
+            {field.replace('_', ' ')}:
+            {this.state[field]}
+        </div>
+
+      })}
+
       <h3>Edit</h3>
+
       <Link to="/">Back</Link>
     </div>
   }

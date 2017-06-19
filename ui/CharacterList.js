@@ -13,7 +13,7 @@ class CharacterList extends Component {
   }
 
   loadCharacters() {
-    axios.get('/character')
+    axios.get('/api/character')
          .then(response => {
            this.setState({
              characters : response.data
@@ -28,7 +28,7 @@ class CharacterList extends Component {
   handleDelete(name) {
     event.preventDefault()
 
-    axios.delete('/character/' + name)
+    axios.delete('/api/character/' + name)
          .then(response => {
            this.loadCharacters()
          })
