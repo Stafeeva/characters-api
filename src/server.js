@@ -37,6 +37,13 @@ app.post('/character', (req, res) => {
   }
 })
 
+app.put('/character/:name',  (req, res) => {
+  const name = req.params.name
+  const characterToUpdate = characters.find(c => c.name === name)
+  characterToUpdate.height = req.body.height
+  res.sendStatus(200)
+})
+
 app.delete('/character/:name', (req, res) => {
   const characterToDelete = req.params.name
   characters = characters.filter(character => {

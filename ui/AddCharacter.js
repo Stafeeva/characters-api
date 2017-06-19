@@ -7,7 +7,16 @@ class AddCharacter extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {name: ''}
+    this.state = {
+      name: '',
+      height: '',
+      mass: '',
+      hair_color: '',
+      skin_color: '',
+      eye_color: '',
+      birth_year: '',
+      is_male: ''
+  }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -15,6 +24,7 @@ class AddCharacter extends Component {
 
   handleChange(event) {
     this.setState({name: event.target.value})
+    console.log(event.target.value)
   }
 
   handleSubmit(event) {
@@ -33,6 +43,10 @@ class AddCharacter extends Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <label>
+          Height:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Add character" />

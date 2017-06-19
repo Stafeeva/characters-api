@@ -1,4 +1,15 @@
 html {
-  font-family: Avenir;
-  background-color: pink;
+  font-family: Lato;
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  letter-spacing: 4px;
+}
+
+a {
+  color: white;
 }

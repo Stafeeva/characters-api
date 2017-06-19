@@ -44,6 +44,7 @@ class CharacterList extends Component {
           return <div key={character.name}>
             <h3><Link to={`/character/${character.name}`}>{character.name}</Link>
               <button onClick={() => this.handleDelete(character.name)}>Delete character</button>
+              <button onClick={() => this.handleUpdate(character.name)}>Update character</button>
             </h3>
           </div>
         })}

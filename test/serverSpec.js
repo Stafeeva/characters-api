@@ -91,7 +91,7 @@ describe('app', () => {
           .post('/character')
           .send(character)
           .end((err, res) => {
-            
+
             chai.request(app)
                 .get('/character/Chewbacca')
                 .end((err, res) => {
@@ -102,7 +102,29 @@ describe('app', () => {
     })
   })
 
-  describe('DELETE /chatacter/:id', () => {
+  describe('PUT /character/:name', () => {
+    it("updates a character given the name", (done) => {
+      let character = {
+        name: "Chewbacca",
+        height: 45
+      }
+      chai.request(app)
+          .post('/character')
+          .send(character)
+          .end((err, res) => {
+
+          chai.request(app)
+              .put('/character/' + character.name)
+              .send({name: "Chewbacca", height: 46})
+              .end((err, res) => {
+                expect(res.status).to.equal(200)
+                done()
+              })
+      })
+    })
+  })
+
+  describe('DELETE /chatacter/:name', () => {
     it('deletes character from a list', done => {
       let character = { name: 'R2D2' }
       chai.request(app)
