@@ -69,9 +69,8 @@ class ViewCharacter extends Component {
       <h2>{this.state.character.name}</h2>
 
       {fields.map(field => {
-        return <div key={field}>
-            {field.replace('_', ' ')}:
-            {this.state.character[field]}
+        return <div className="property" key={field}>
+            {field.replace('_', ' ')}: {this.state.character[field].toString()}
         </div>
       })}
 

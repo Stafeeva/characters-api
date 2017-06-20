@@ -40,12 +40,15 @@ a:hover {
   margin: 10px;
   padding: 10px;
   border: 1px solid white;
+  margin-top: 40px;
 }
 
 .addButton {
   margin-bottom: 40px;
 }
 
-label {
+.property {
+  font-size: 15px;
+  margin: 10px;
   text-transform: capitalize;
 }

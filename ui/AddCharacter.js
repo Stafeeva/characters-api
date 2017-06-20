@@ -46,17 +46,16 @@ class AddCharacter extends Component {
 
       <form onSubmit={this.handleSubmit}>
         {fields.map(field => {
-          return <div key={field}>
+          return <div className="property" key={field}>
             <label>
-              {field.replace('_', ' ')}:
-              <input type="text" value={this.state[field].value} onChange={(e) => this.handleChange(field, e.target.value)} />
+              {field.replace('_', ' ')}: <input type="text" value={this.state[field].value} onChange={(e) => this.handleChange(field, e.target.value)} />
             </label>
           </div>
         })}
 
-        <input type="submit" value="Add character" />
+        <input className="button" type="submit" value="Add character" />
+        <Link className="button" to="/">Back</Link>
       </form>
-      <Link to="/">Back</Link>
     </div>
   }
 }

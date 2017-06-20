@@ -44,16 +44,15 @@ class EditCharacter extends Component {
 
       <form onSubmit={this.handleSubmit}>
         {fields.map(field => {
-          return <div key={field}>
+          return <div className="property" key={field}>
             <label>
-              {field.replace('_', ' ')}:
-              <input type="text" value={this.state[field]} onChange={(e) => this.handleChange(field, e.target.value)} />
+              {field.replace('_', ' ')}: <input type="text" value={this.state[field]} onChange={(e) => this.handleChange(field, e.target.value)} />
             </label>
           </div>
         })}
 
-        <input type="submit" value="Save" />
-        <Link to="/">Cancel edit</Link>
+        <input className="button" type="submit" value="Save" />
+        <Link className="button" to="/">Cancel</Link>
       </form>
     </div>
   }
