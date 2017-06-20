@@ -1,5 +1,44 @@
 # Characters application
 
+### Usage
+
+* Clone this repository
+* Run ```npm install```
+* Run ```npm run webpack```
+* Run ```node main.js```
+* Go to http://localhost:3000
+* Run ```npm test``` for testing
+
+### Libraries used
+
+* Node.js
+* Express.js
+* Babel
+* React
+* React Router
+* Webpack
+* Axios
+* Mocha
+* Chai
+
+### Things to do or improve
+
+* UI testing
+* Add unique ID for characters
+* Validation for adding/editing fields
+* Error messages for User
+* Refactor to remove duplication
+* Create smaller reusable classes
+
+### Screenshots
+
+![alt text](screenshots/screenshot1.jpg "Screenshot one")
+
+![alt text](screenshots/screenshot2.jpg "Screenshot two")
+
+![alt text](screenshots/screenshot3.jpg "Screenshot three")
+
+
 ### User Stories
 
 ```
@@ -37,11 +76,3 @@ As a Star Wars fan
 I want to be able to remove a character from my favourites
 So I can remove them when they join the Dark Side
 ```
-
-Screenshots
-
-![alt text](screenshots/screenshot1.jpg "Screenshot one")
-
-![alt text](screenshots/screenshot2.jpg "Screenshot two")
-
-![alt text](screenshots/screenshot3.jpg "Screenshot three")
