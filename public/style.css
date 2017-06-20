@@ -3,8 +3,10 @@ html {
   background-color: black;
   color: white;
   letter-spacing: 1.5px;
-  background-image: url("../images/background2.jpg");
-  background-size: 100%;
+  background: url("../images/background2.jpg") no-repeat center center fixed;;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 #root {

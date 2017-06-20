@@ -25,8 +25,7 @@ class SingleCharacter extends Component {
          .then(response => {
            const favourites = response.data
 
-          if (favourites.hasOwnProperty(characterName) &&
-              favourites[characterName] == true) {
+          if (favourites[characterName] == true) {
             let state = this.state
             state.is_favourite = true
             this.setState(state)
