@@ -37,3 +37,11 @@ As a Star Wars fan
 I want to be able to remove a character from my favourites
 So I can remove them when they join the Dark Side
 ```
+
+Screenshots
+
+![alt text](screenshots/screenshot1.jpg "Screenshot one")
+
+![alt text](screenshots/screenshot2.jpg "Screenshot two")
+
+![alt text](screenshots/screenshot3.jpg "Screenshot three")
