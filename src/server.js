@@ -56,6 +56,7 @@ app.put('/api/character/:name',  (req, res) => {
   const name = req.params.name
   const characterToUpdate = characters.find(c => c.name === name)
   characterToUpdate.height = req.body.height
+
   res.sendStatus(200)
 })
 
@@ -64,6 +65,26 @@ app.delete('/api/character/:name', (req, res) => {
   characters = characters.filter(character => {
     return character.name !== characterToDelete
   })
+  res.sendStatus(200)
+})
+
+//favourites routes
+
+const favourites = {}
+
+app.get('/api/favourite', (req, res) => {
+  res.json(favourites)
+})
+
+app.post('/api/favourite/:name', (req, res) => {
+  const favourite = req.params.name
+  favourites[favourite] = true
+  res.sendStatus(201)
+})
+
+app.delete('/api/favourite/:name', (req, res) => {
+  const favourite = req.params.name
+  favourites[favourite] = false
   res.sendStatus(200)
 })
 
