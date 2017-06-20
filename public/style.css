@@ -17,23 +17,33 @@ html {
 
 h1 {
   font-family: Lato, Avenir;
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
   letter-spacing: 4px;
+  margin-bottom: 50px;
 }
 
 a {
   color: white;
+  text-decoration: none;
 }
 
-button {
-  line-height: 15px;
+a:hover {
+  color: #ffff99;
+}
+
+.button {
   font-size: 15px;
   font-weight: bold;
   color: white;
-  background-color: black;
-  margin: 5px;
-  padding: 5px;
+  background-color: inherit;;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+.addButton {
+  margin-bottom: 40px;
 }
 
 label {

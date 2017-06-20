@@ -39,17 +39,16 @@ class CharacterList extends Component {
 
   render() {
     return <div>
-        <Link to="/character/add">Add character</Link>
-
+      <div className="addButton">
+        <Link className="button" to="/character/add">Add character</Link>
+      </div>
         {this.state.characters.map(character => {
           return <div key={character.name}>
             <h3>
-
-            {this.state.favourites[character.name] &&
-              <span>★</span>
-            }
-
             <Link to={`/character/view/${character.name}`}>{character.name}</Link>
+            {this.state.favourites[character.name] &&
+              <span>  ★</span>
+            }
             </h3>
           </div>
         })}

@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import { withRouter, Link } from 'react-router-dom'
 
-class SingleCharacter extends Component {
+class ViewCharacter extends Component {
 
   constructor(props) {
     super(props)
@@ -76,17 +76,17 @@ class SingleCharacter extends Component {
       })}
 
       {this.state.is_favourite ? (
-        <button onClick={() => this.removeFavourite()}>Remove favourite</button>
+        <button className="button" onClick={() => this.removeFavourite()}>Remove favourite</button>
       ) : (
-        <button onClick={() => this.addFavourite()}>Add favourite</button>
+        <button className="button" onClick={() => this.addFavourite()}>Add favourite</button>
       )}
 
-      <button onClick={() => this.handleDelete()}>Delete</button>
-      <Link to={`/character/edit/${this.state.character.name}`}>Edit</Link>
-      <Link to="/">Back</Link>
+      <button className="button" onClick={() => this.handleDelete()}>Delete</button>
+      <Link className="button" to={`/character/edit/${this.state.character.name}`}>Edit</Link>
+      <Link className="button" to="/">Back</Link>
     </div>
   }
 
 }
 
-export default withRouter(SingleCharacter)
+export default withRouter(ViewCharacter)

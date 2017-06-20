@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CharacterList from './CharacterList'
 import AddCharacter from './AddCharacter'
-import SingleCharacter from './SingleCharacter'
+import ViewCharacter from './ViewCharacter'
 import EditCharacter from './EditCharacter'
 
 import {
@@ -17,7 +17,7 @@ class AppRoutes extends Component {
       <div>
         <Route exact path='/' component={CharacterList} />
         <Route path='/character/add' component={AddCharacter} />
-        <Route path='/character/view/:name' component={SingleCharacter} />
+        <Route path='/character/view/:name' component={ViewCharacter} />
         <Route path='/character/edit/:name' component={EditCharacter} />
       </div>
     </Router>
