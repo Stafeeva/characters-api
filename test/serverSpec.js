@@ -45,7 +45,7 @@ describe('app', () => {
                   expect(res.body[0].name).to.equal("Chewbacca")
                   done()
                 })
-          })
+        })
     })
 
     it('prevents the user from adding the same character twice', done => {
@@ -93,7 +93,7 @@ describe('app', () => {
           .end((err, res) => {
 
             chai.request(app)
-                .get('/api/character/Chewbacca')
+                .get('/api/character/' + character.name)
                 .end((err, res) => {
                   expect(res.status).to.equal(200)
                   done()
@@ -141,6 +141,63 @@ describe('app', () => {
                 done()
               })
         })
+    })
+  })
+
+  describe('/POST /favourite/:name', () => {
+    it("adds a character to the list of favourites", (done) => {
+      let character = {
+        name: "R2D2"
+      }
+      chai.request(app)
+          .post('/api/favourite/' + character.name)
+          .send(character)
+          .end((err, res) => {
+            expect(res.status).to.equal(201)
+
+            chai.request(app)
+                .get('/api/favourite')
+                .end((err, res) => {
+                  expect(res.status).to.equal(200)
+                  expect(res.body[character.name]).to.equal(true)
+                  done()
+                })
+        })
+    })
+  })
+
+  describe('DELETE /favourite/:name', () => {
+    it("changes the status of favourite character to 'false'", (done) => {
+      let character = {
+        name: "Darth Vader"
+      }
+      chai.request(app)
+          .post('/api/favourite/' + character.name)
+          .send(character)
+          .end((err, res) => {
+            expect(res.status).to.equal(201)
+
+            chai.request(app)
+                .get('/api/favourite')
+                .end((err, res) => {
+                  expect(res.status).to.equal(200)
+                  expect(res.body[character.name]).to.equal(true)
+
+                  chai.request(app)
+                      .delete('/api/favourite/' + character.name)
+                      .end((err, res) => {
+                        expect(res.status).to.equal(200)
+
+                        chai.request(app)
+                            .get('/api/favourite')
+                            .end((err, res) => {
+                              expect(res.status).to.equal(200)
+                              expect(res.body[character.name]).to.equal(false)
+                              done()
+                        })
+                  })
+            })
+      })
     })
   })
 
