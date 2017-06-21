@@ -1,4 +1,19 @@
 language: node_js
 
 node_js:
-  - "6"
+  - "7"
+
+dist: trusty
+sudo: false
+
+before_script:
+    - jdk_switcher use oraclejdk8
+    
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
