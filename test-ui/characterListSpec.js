@@ -7,8 +7,8 @@ describe('homepage', ()=> {
 
   it("has 'Add Character' button", () => {
     browser.url('http://localhost:3000')
-    browser.getText('.addButton').should.be.equal('Add character')
-    browser.click('.addButton')
+    browser.getText('.button').should.be.equal('Add character')
+    browser.click('.button')
     browser.waitUntil(() => {
       return browser.getText('h2') === "Add character"
     }, 10000)
