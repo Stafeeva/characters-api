@@ -21,9 +21,10 @@ describe("Add character page", () => {
     browser.getUrl().should.be.equal('http://localhost:3000/')
   })
 
-  it("allowes user to add charachter to the list of characters", () => {
+  it("allows user to add character to the list of characters", () => {
     browser.url('http://localhost:3000/character/add')
-    const input = browser.element('input')
+    const input = browser.element('input#name')
+
     input.setValue('R2D2')
     browser.click('#addCharacterButton')
     browser.waitUntil(() => {

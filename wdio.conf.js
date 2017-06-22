@@ -46,13 +46,26 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
+    // headless chrome settings - mac
+    // browserName: 'chrome', // options: chrome || firefox || phantomjs
+    // chromeOptions: {
+    //   args: ['--headless', '--disable-gpu', 'window-size=1200,800'],
+    //   binary: '/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
+    // }
+    //
     capabilities: [{
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instance available you can make sure that not more than
         // 5 instance gets started at a time.
         maxInstances: 1,
         //
-        browserName: 'chrome' // options: chrome || firefox || phantomjs
+
+        browserName: 'google-chrome-stable', // options: chrome || firefox || phantomjs
+        chromeOptions: {
+          args: ['--headless', '--disable-gpu', 'window-size=1200,800']
+          //,
+          //binary: '/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
+        }
     }],
     //
     // ===================
