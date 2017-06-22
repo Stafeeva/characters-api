@@ -29,12 +29,12 @@ class AddCharacter extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault()
-
     const data = this.state
+    const history = this.props.history
+
     axios.post('/api/character', data)
          .then(response => {
-           this.props.history.push('/')
+           history.push('/')
          })
   }
 
@@ -43,7 +43,6 @@ class AddCharacter extends Component {
 
     return <div>
       <h2>Add character</h2>
-
 
         {fields.map(field => {
           return <div className="property" key={field}>

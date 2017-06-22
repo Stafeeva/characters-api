@@ -5,13 +5,17 @@ node_js:
 
 dist: trusty
 
-addons:
-  chrome: stable
-
 sudo: false
 
+addons:
+  firefox: latest
+
 before_script:
-    - jdk_switcher use oraclejdk8
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3
+  - fluxbox >/dev/null 2>&1 &
+  - jdk_switcher use oraclejdk8
 
 env:
   - CXX=g++-4.8

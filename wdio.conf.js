@@ -58,14 +58,15 @@ exports.config = {
         // grid with only 5 firefox instance available you can make sure that not more than
         // 5 instance gets started at a time.
         maxInstances: 1,
-        //
 
-        browserName: 'google-chrome-stable', // options: chrome || firefox || phantomjs
-        chromeOptions: {
-          args: ['--headless', '--disable-gpu', 'window-size=1200,800']
-          //,
-          //binary: '/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
-        }
+        browserName: 'firefox' // options: chrome || firefox || phantomjs
+
+        // browserName: 'chrome', // options: chrome || firefox || phantomjs
+        // chromeOptions: {
+        //   args: ['--headless', '--disable-gpu', 'window-size=1200,800'],
+        //   binary: '/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
+        // }
+
     }],
     //
     // ===================
@@ -165,6 +166,12 @@ exports.config = {
         var chai = require('chai');
         // http://chaijs.com/
         //global.fetch = require('node-fetch');
+
+
+        browser.setViewportSize({
+                width: 1280,
+                height: 800
+            });
 
         chai.config.includeStack = true;
         global.expect = chai.expect;

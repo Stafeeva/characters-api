@@ -5,13 +5,6 @@ describe("Add character page", () => {
     browser.getText('h2').should.be.equal('Add character')
   })
 
-  // it("allowes user to fill in 'name' with 'R2D2'", () => {
-  //   browser.url('http://localhost:3000/character/add')
-  //   const input = browser.element('input')
-  //   input.setValue('R2D2')
-  //   input.getValue().should.be.equal('R2D2')
-  // })
-
   it("has 'Back' link", () => {
     browser.url('http://localhost:3000/character/add')
     browser.click('a')
@@ -27,10 +20,12 @@ describe("Add character page", () => {
 
     input.setValue('R2D2')
     browser.click('#addCharacterButton')
+
     browser.waitUntil(() => {
       return browser.getText('h2') === "Welcome!"
-    }, 3000)
-    browser.element('#R2D2').should.exist
+    }, 2000)
+
+    browser.getText('#R2D2').should.be.equal("R2D2")
   })
 
 })
