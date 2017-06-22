@@ -53,7 +53,7 @@ class AddCharacter extends Component {
           </div>
         })}
 
-        <input className="button" type="submit" value="Add character" />
+        <input className="button" id="addCharacterButton" type="submit" value="Add character" />
         <Link className="button" to="/">Back</Link>
       </form>
     </div>

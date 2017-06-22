@@ -11,7 +11,7 @@ describe('homepage', ()=> {
     browser.click('.button')
     browser.waitUntil(() => {
       return browser.getText('h2') === "Add character"
-    }, 10000)
+    }, 3000)
     browser.getUrl().should.be.equal('http://localhost:3000/character/add')
   })
 
