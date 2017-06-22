@@ -168,10 +168,10 @@ exports.config = {
         //global.fetch = require('node-fetch');
 
 
-        browser.setViewportSize({
-                width: 1280,
-                height: 800
-            });
+        // browser.setViewportSize({
+        //         width: 1280,
+        //         height: 800
+        //     });
 
         chai.config.includeStack = true;
         global.expect = chai.expect;

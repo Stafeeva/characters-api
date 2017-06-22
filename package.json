@@ -4,10 +4,11 @@
   "description": "um_challenge",
   "main": "main.js",
   "scripts": {
+    "webpack": "webpack --config webpack.config.js",
+    "webpack-watch": "webpack --config webpack.config.js --progress --watch",
     "test-unit": "mocha",
     "test-ui": "./node_modules/.bin/wdio wdio.conf.js",
-    "test": "npm run test-unit && npm run test-ui",
-    "webpack": "webpack --config webpack.config.js --progress --watch"
+    "test": "npm run webpack && npm run test-unit && npm run test-ui"
   },
   "author": "Natalia Stafeeva",
   "license": "ISC",
