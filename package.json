@@ -4,8 +4,11 @@
   "description": "um_challenge",
   "main": "main.js",
   "scripts": {
-    "test": "mocha",
-    "webpack": "webpack --config webpack.config.js --progress --watch"
+    "webpack": "webpack --config webpack.config.js",
+    "webpack-watch": "webpack --config webpack.config.js --progress --watch",
+    "test-unit": "mocha",
+    "test-ui": "./node_modules/.bin/wdio wdio.conf.js",
+    "test": "npm run webpack && npm run test-unit && npm run test-ui"
   },
   "author": "Natalia Stafeeva",
   "license": "ISC",
@@ -29,6 +32,10 @@
   "devDependencies": {
     "chai": "^4.0.2",
     "chai-http": "^3.0.0",
-    "mocha": "^3.4.2"
+    "mocha": "^3.4.2",
+    "wdio-mocha-framework": "^0.5.10",
+    "wdio-selenium-standalone-service": "0.0.9",
+    "wdio-spec-reporter": "^0.1.0",
+    "webdriverio": "^4.8.0"
   }
 }

@@ -29,12 +29,12 @@ class AddCharacter extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault()
-
     const data = this.state
+    const history = this.props.history
+
     axios.post('/api/character', data)
          .then(response => {
-           this.props.history.push('/')
+           history.push('/')
          })
   }
 
@@ -44,18 +44,17 @@ class AddCharacter extends Component {
     return <div>
       <h2>Add character</h2>
 
-      <form onSubmit={this.handleSubmit}>
         {fields.map(field => {
           return <div className="property" key={field}>
             <label>
-              {field.replace('_', ' ')}: <input type="text" value={this.state[field].value} onChange={(e) => this.handleChange(field, e.target.value)} />
+              {field.replace('_', ' ')}: <input id={field} type="text" value={this.state[field].value} onChange={(e) => this.handleChange(field, e.target.value)} />
             </label>
           </div>
         })}
 
-        <input className="button" type="submit" value="Add character" />
+        <button className="button" id="addCharacterButton" onClick={this.handleSubmit}>Add character</button>
         <Link className="button" to="/">Back</Link>
-      </form>
+
     </div>
   }
 }
