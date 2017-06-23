@@ -20,10 +20,10 @@
 * Axios
 * Mocha
 * Chai
+* WebdriverIO
 
 ### Things to do or improve
 
-* UI testing
 * Add unique ID for characters
 * Validation for adding/editing fields
 * Error messages for User
